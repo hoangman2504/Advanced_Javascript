@@ -1,3 +1,4 @@
+//!#3 Status Codes - Trạng Thái Của Request
 var request = new XMLHttpRequest(); //1 dòng này để khai báo 1 lời gọi request
         request.onreadystatechange = function() {
     if (this.readyState == 4 && request.status === 200) {
