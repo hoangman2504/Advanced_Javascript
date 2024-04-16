@@ -8,21 +8,31 @@
 <body>
     <h1>Javascript</h1>
     <script>
-        var request = new XMLHttpRequest(); //1 dòng này để khai báo 1 lời gọi request
-        request.onreadystatechange = function() {
-    if (this.readyState == 4 && request.status === 200) {
-       // Typical action to be performed when the document is ready:
-       console.log('>>> Check request', request);
-    } else {
-        console.log('>>> status', request.status);
-    }
-};
-request.open("GET", "https://jsonplaceholder.typicode.com/todoss", true); //2 dòng này để khởi tạo 1 request
-request.send(); //3 dòng này để chạy 1 request
-//ở đoạn code này giúp biết được status => trạng thái của của 1 request 200 ok => truy vấn và lấy data
-//từ 1 request về thành công, 404 => url không được đúng hay không được trình duyệt tìm thấy link
-// https bị sai v.v
-//link tham khảo status: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+        //!#1 What's Async Javascript - Khái niệm BẤT ĐỒNG BỘ JS
+//Synchronous Function => hàm đồng bộ
+console.log(1);
+console.log(2);
+console.log(3);
+console.log(4);
+
+//ở đoạn mã này chúng ta có thể thấy các log sẽ chạy theo thứ tự đầu đến cuối từ log1 rồi đến log2 v.v
+//Asynchronous Function => Hàm bất đồng bộ
+function delayedGreeting() {
+    console.log('Chào bạn!'); // Bước 1: In ra lời chào trước
+    setTimeout(() => {
+        console.log('Xin chào sau 2 giây!'); // Bước 3: In ra lời chào sau khi đợi 2 giây
+    }, 2000);
+}
+
+console.log('Bắt đầu chương trình.'); // Bước 2: In ra thông báo bắt đầu chương trình
+
+delayedGreeting(); // Gọi hàm delayedGreeting để in ra lời chào sau một khoảng thời gian
+
+console.log('Tiếp tục thực hiện các công việc khác.'); // Bước 4: In ra thông báo tiếp tục thực hiện các công việc khác
+
+//ở đoạn mã này chỉ ra 1 vd về hàm bất đồng bộ có dùng hàm setTimeout đề cho thời gian
+//chạy lâu hơn nhằm cho các đoạn mã kh có setTimeout đều sẽ chạy chạy trước rồi mới đến setTimeout
+//xong và trả kết quả về khi nó chạy xong
     </script>
 </body>
 </html>
