@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced JS</title>
-</head>
-<body>
-    <h1>Javascript</h1>
-    <script>
-        var request = new XMLHttpRequest(); //1 dòng này để khai báo 1 lời gọi request
+var request = new XMLHttpRequest(); //1 dòng này để khai báo 1 lời gọi request
         request.onreadystatechange = function() {
     if (this.readyState == 4 && request.status === 200) {
        // Typical action to be performed when the document is ready:
@@ -23,6 +13,3 @@ request.send(); //3 dòng này để chạy 1 request
 //từ 1 request về thành công, 404 => url không được đúng hay không được trình duyệt tìm thấy link
 // https bị sai v.v
 //link tham khảo status: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
-    </script>
-</body>
-</html>
