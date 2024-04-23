@@ -29,7 +29,6 @@ const callback = (error, data) => {
 
      //2 dòng này để khởi tạo 1 request
     request.open("GET","https://jsonplaceholder.typicode.com/todos",true);
-    
      //3 dòng này để gửi 1 request
     request.send();
   }
