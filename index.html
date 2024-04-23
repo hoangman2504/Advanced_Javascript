@@ -8,18 +8,46 @@
 <body>
     <h1>Javascript</h1>
     <script>
-       var request = new XMLHttpRequest(); //1 dòng này để khai báo 1 lời gọi request
-        request.onreadystatechange = function() {
-    if (this.readyState == 4 && request.status === 200) {
-       // Typical action to be performed when the document is ready:
-       console.log('>>> Check request', request);
-    } else {
-        console.log('>>> status', request.status);
-    }
-};
-request.open("GET", "https://jsonplaceholder.typicode.com/todos/1", true); //2 dòng này để khởi tạo 1 request
-
-request.send(); //3 dòng này để chạy 1 request
-    </script>
+        //!#4 Callback functions - Khi Cần Thì Gọi Lại
+        const callback = (error, data) => {
+          if(error){
+            console.log('Some thing wrongs', error);
+          }
+  
+          if(data){
+            console.log('>>> Calling callback with data: ', data);
+          }
+        }
+  
+        function getTodos(callback){
+          var request = new XMLHttpRequest;
+  
+          request.onreadystatechange = function(){
+            if(this.readyState === 4 && request.status === 200){
+                //dòng này giúp chuyển đổi từ dạng data responText thành data object JSON
+              const data = JSON.parse(request.responseText);
+              //dòng này giúp chuyển đổi từ object JSON thành string JSON    
+              const dataString = JSON.stringify(data);
+              callback(undefined, data); //đây là data cho máy móc sử dụng
+              callback(undefined, dataString); //đây là data cho backend và frontend giao tiếp qua lại
+              //với nhau, và để gửi dữ liệu này lên sever
+              callback(undefined, request.responseText); //đây là data dạng JSON        
+            }
+  
+            if(this.readyState === 4 && request.status !== 200){
+              callback('Some thing wrongs', undefined);
+            }
+          }
+  
+          request.open('GET', './data.json', true);
+          request.send();
+        }
+  
+        console.log(1);
+        console.log(2);
+        getTodos(callback);
+        console.log(3);
+        console.log(4);
+      </script>
 </body>
 </html>
