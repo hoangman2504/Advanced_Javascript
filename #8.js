@@ -16,11 +16,7 @@ function getTodos(id, callback) {
         }
       };
       //truyền vào 1 biến id vào link request để giúp mã dưới lấy id 1, 2, 3 v.v
-      request.open(
-        "GET",
-        `https://jsonplaceholder.typicode.com/todos/${id}`,
-        true
-      );  
+      request.open("GET",`https://jsonplaceholder.typicode.com/todos/${id}`,true);  
       request.send();
     });
   }
