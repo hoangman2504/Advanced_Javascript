@@ -1,5 +1,4 @@
 //!#5 Using JSON data - Đọc File JSON Với Javascript Thuần "Chủng"
-//!#4 Callback functions - Khi Cần Thì Gọi Lại
 const callback = (error, data) => {
     if(error){
       console.log('Some thing wrongs', error);
