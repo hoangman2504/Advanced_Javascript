@@ -92,4 +92,6 @@ const callback = (error, data) => {
         //   .catch((error) => {
         //     console.log(error);
         //   });
-
+//note: promise sử dụng khi làm việc với bất đồng bộ và khắc phục khi gặp callback hell
+//khi sử dụng promise thì phải khai báo hàm promise, nếu như có đk thì phải cho nó vào
+//bên trong hàm promise thì code mới chạy, gọi hàm thì gọi bên ngoài hàm promise
