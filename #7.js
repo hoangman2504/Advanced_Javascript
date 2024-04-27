@@ -29,7 +29,7 @@ const callback = (error, data) => {
             }
           };
   
-          request.open("GET",`https://jsonplaceholder.typicode.com/todos/${id}`,true);
+          request.open('GET',`https://jsonplaceholder.typicode.com/todos/${id}`,true);
           request.send();
         })
         }
