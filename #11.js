@@ -16,6 +16,7 @@ const getNewTodos = async(id) => {
      .catch(err => {
       console.log('>>> Check error: ', err.message);
      })
+
      //đoạn mã này để báo lỗi khi requuest bị sai đường truyền là id thay vì truyền vào nó
      //là 1 string không xác định
 
@@ -40,3 +41,5 @@ const getTodos = async(id) => {
      .catch(err => {
       console.log('>>> Check error: ', err.message);
      })
+
+     //đoạn mã này báo lỗi khi request bị sai đường truyền khi lấy data về từ 1 request
